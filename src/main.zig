@@ -40,7 +40,7 @@ fn computeCordicLength(x_1: i16, y_1: i16, x_2: *i16, y_2: i16) i32 {
         }
     }
 
-    x_2.* = @as(i16, @truncate((x2 >> 1) + (x2 >> 3)));
+    x_2.* = @truncate((x2 >> 1) + (x2 >> 3));
     return (x1 >> 1) + (x1 >> 3);
 }
 
@@ -97,7 +97,7 @@ pub fn main() !void {
 
                     var t0 = computeCordicLength(px, py, &lx, ly);
                     var t1 = t0 - R2I;
-                    var t2 = computeCordicLength(pz, @as(i16, @truncate(t1)), &lz, lx);
+                    var t2 = computeCordicLength(pz, @truncate(t1), &lz, lx);
                     var d = t2 - R1I;
 
                     t += d;
