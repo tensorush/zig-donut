@@ -3,7 +3,7 @@
 [![CI][ci-shield]][ci-url]
 [![LC][lc-shield]][lc-url]
 
-### Zig port of [the animated ASCII-art donut rendering](https://gist.github.com/a1k0n/8ea6516b4946ab36348fb61703dc3194) created by [Andy Sloane](https://github.com/a1k0n).
+### Zig port of the [animated ASCII-art donut rendering](https://gist.github.com/a1k0n/8ea6516b4946ab36348fb61703dc3194) created by [Andy Sloane](https://github.com/a1k0n).
 
 #### :rocket: Usage
 
