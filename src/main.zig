@@ -3,8 +3,8 @@ const std = @import("std");
 const DZ: i32 = 5;
 const R1: i32 = 1;
 const R2: i32 = 2;
-const R1I: i32 = R1 * 256;
-const R2I: i32 = R2 * 256;
+const R1I = R1 * 256;
+const R2I = R2 * 256;
 
 fn rotate(s: u4, x: *i16, y: *i16) void {
     x.* -= y.* >> s;
@@ -24,8 +24,8 @@ fn computeCordicLength(x_1: i16, y_1: i16, x_2: *i16, y_2: i16) i32 {
 
     var i: u4 = 0;
     while (i < 8) : (i += 1) {
-        const t: i32 = x1;
-        const t2: i32 = x2;
+        const t = x1;
+        const t2 = x2;
 
         if (y1 < 0) {
             x1 -= y1 >> i;
@@ -64,36 +64,36 @@ pub fn main() !void {
         var p0z: i32 = -DZ * cAcB >> 6;
         var niters: i32 = 0;
         var nnormals: i32 = 0;
-        var yincC: i16 = (cA >> 6) + (cA >> 5);
-        var yincS: i16 = (sA >> 6) + (sA >> 5);
-        var xincX: i16 = (cB >> 7) + (cB >> 6);
-        var xincY: i16 = (sAsB >> 7) + (sAsB >> 6);
-        var xincZ: i16 = (cAsB >> 7) + (cAsB >> 6);
-        var ycA: i16 = -((cA >> 1) + (cA >> 4));
-        var ysA: i16 = -((sA >> 1) + (sA >> 4));
+        var yincC = (cA >> 6) + (cA >> 5);
+        var yincS = (sA >> 6) + (sA >> 5);
+        var xincX = (cB >> 7) + (cB >> 6);
+        var xincY = (sAsB >> 7) + (sAsB >> 6);
+        var xincZ = (cAsB >> 7) + (cAsB >> 6);
+        var ycA = -((cA >> 1) + (cA >> 4));
+        var ysA = -((sA >> 1) + (sA >> 4));
 
         var j: u8 = 0;
         while (j < 23) : (j += 1) {
             var xsAsB: i32 = (sAsB >> 4) - sAsB;
             var xcAsB: i32 = (cAsB >> 4) - cAsB;
-            var vxi14: i16 = (cB >> 4) - cB - sB;
-            var vyi14: i16 = ycA - @as(i16, @truncate(xsAsB)) - sAcB;
-            var vzi14: i16 = ysA + @as(i16, @truncate(xcAsB)) + cAcB;
+            var vxi14 = (cB >> 4) - cB - sB;
+            var vyi14 = ycA - @as(i16, @truncate(xsAsB)) - sAcB;
+            var vzi14 = ysA + @as(i16, @truncate(xcAsB)) + cAcB;
 
             var i: u8 = 0;
             while (i < 79) : (i += 1) {
                 var t: i32 = 512;
-                var px: i16 = @as(i16, @truncate(p0x)) + (vxi14 >> 5);
-                var py: i16 = @as(i16, @truncate(p0y)) + (vyi14 >> 5);
-                var pz: i16 = @as(i16, @truncate(p0z)) + (vzi14 >> 5);
-                var lx0: i16 = sB >> 2;
-                var ly0: i16 = sAcB - cA >> 2;
-                var lz0: i16 = -cAcB - sA >> 2;
+                var px = @as(i16, @truncate(p0x)) + (vxi14 >> 5);
+                var py = @as(i16, @truncate(p0y)) + (vyi14 >> 5);
+                var pz = @as(i16, @truncate(p0z)) + (vzi14 >> 5);
+                var lx0 = sB >> 2;
+                var ly0 = sAcB - cA >> 2;
+                var lz0 = -cAcB - sA >> 2;
 
                 while (true) : (niters += 1) {
-                    var lx: i16 = lx0;
-                    var ly: i16 = ly0;
-                    var lz: i16 = lz0;
+                    var lx = lx0;
+                    var ly = ly0;
+                    var lz = lz0;
 
                     var t0 = computeCordicLength(px, py, &lx, ly);
                     var t1 = t0 - R2I;
@@ -105,7 +105,7 @@ pub fn main() !void {
                         try writer.writeByte(' ');
                         break;
                     } else if (d < 2) {
-                        const N: i32 = lz >> 9;
+                        const N = lz >> 9;
                         try writer.writeByte(".,-~:;!*=#$@"[if (N > 0) if (N < 12) @intCast(N) else 11 else 0]);
                         nnormals += 1;
                         break;
@@ -114,9 +114,9 @@ pub fn main() !void {
                     var dx: i16 = 0;
                     var dy: i16 = 0;
                     var dz: i16 = 0;
-                    var a: i16 = vxi14;
-                    var b: i16 = vyi14;
-                    var c: i16 = vzi14;
+                    var a = vxi14;
+                    var b = vyi14;
+                    var c = vzi14;
 
                     while (d > 0) {
                         if (d & 1024 > 0) {
