@@ -8,7 +8,7 @@
 #### :rocket: Usage
 
 ```sh
-git clone https://github.com/tensorush/zig-donut
+git clone https://github.com/tensorush/zig-donut.git
 cd zig-donut/
 zig build exe
 ```
